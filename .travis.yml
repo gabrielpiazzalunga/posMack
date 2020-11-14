@@ -13,10 +13,14 @@ install:
 script:                                                                                                                                                                                                  
   - python -m unittest -v test
 
+os: linux
+dist: xenial
+
 # Definir o Deploy no Heroku
 deploy:
   provider: heroku
   api_key: $HEROKU_API_KEY
+  strategy: api
   edge: true 
   app: devopslab-gabriel
   on:
