@@ -19,5 +19,6 @@ deploy:
   api_key: $HEROKU_API_KEY
   edge: true 
   app: devopslab-gabriel
-  tags: true
-  all_branches: true
+  on:
+    tags: true
+    all_branches: true
