@@ -20,5 +20,4 @@ deploy:
   edge: true 
   app: devopslab-gabriel
   on:
-    tags: true
-    all_branches: true
+    branch: main
