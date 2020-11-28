@@ -7,7 +7,7 @@ Aula 5 - dia 28/11 8h30
 
 [![Build Status](https://travis-ci.com/gabrielpiazzalunga/posMack.svg?branch=main)](https://travis-ci.com/gabrielpiazzalunga/posMack)
 
-[![Quality Gate](https://sonarcloud.io/api/badges/gate?key=gabrielpiazzalunga)](https://sonarcloud.io/dashboard/index/gabrielpiazzalunga)
+[![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=gabrielpiazzalunga&metric=alert_status)](https://sonarcloud.io/dashboard?id=gabrielpiazzalunga)
 
 RECAP
 git init
