@@ -26,6 +26,7 @@ jobs:
         - pip install coverage
 
       script:
+        - coverage run test.py || travis_terminate 1;
         - coverage report app.py || travis_terminate 1;
         - coverage xml app.py || travis_terminate 1;
         - sonar-scanner || travis_terminate 1;
@@ -46,7 +47,7 @@ jobs:
         app: devopslab-gabriel-stg
         on: 
           branch: main
-          
+
     - stage: Teste em STG
       name: "Get na API do stage"
       script: "curl https://devopslab-gabriel-stg.herokuapp.com/"
