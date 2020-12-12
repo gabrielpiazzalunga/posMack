@@ -46,6 +46,10 @@ jobs:
         app: devopslab-gabriel-stg
         on: 
           branch: main
+          
+    - stage: Teste em STG
+      name: "Get na API do stage"
+      script: "curl https://devopslab-gabriel-stg.herokuapp.com/"
 
     - stage: Deploy PROD
       script: skip
