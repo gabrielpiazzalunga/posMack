@@ -37,7 +37,7 @@ deploy:
   on:
     branch: main
 
-# Ao final do arquivo deverá ter as linhas abaixo                                                                                                                                                      
-
+# Ao final do arquivo deverá ter as linhas abaixo                                                                                                                                                    
 notifications:
-  slack: devopstoolsgroup:DsA2PSI10ONiqotpvQJkvztq
+ slack:
+  secure: RbrczzvgM8FFsjCMwDeWcWYiTpH3VhoIyLJVmW91Tj5zSNPY55AA/4K98wsqULHsK1KJCbRiOymOSB4Zj/TSDFP8IsqvaKT+tGkMQ4LcvPdGbZBCb/L16Bs04fvyia03rebGBWydazwa0tukMlzPouM5BRIWW62bo1Le4EK4NhwkfbTuhM4D5IcLnfOPGmiQVPL52q3OHOpTA9nzYVAPkfSmJyIQhCukNkE7NUbzxyEDMQ47iYAKJUzXEOSF9ynz2QVJC8yrbxypk1mV6RrOZV2oD4xIIk+gnGglLS1gbAUEVxCLBw0VWeYQrHsj1Xr7SBihgdDnkZAPGoFIZFambeCBB7ryaUTfApB9thfdy3y0amkaJLJmK0Zk9d5YhHTh4ClzMhrPcuvOTs897p13r4NwAP0ohubYU39DbStMhs83Zut7mXxIxA6Cs/90q2Cxv6PSykuSkKAKa0vklLU/gsgWgBQ7I4aTOd4YXOVDfkXVK5dz2yYcwoGrUoNE/nCTalUynRM7zsrRc8nmxQAtuJDS4+5vJqAVYAYUBsRS16eH0PMWw96AF7s3vcMtSnaN7fmJtXUHc9dv+qiRQxHnEW6rVwHBoLEM+JDvNtpFg7KpXk6aCHzZOp0jHqFcn6mPHeNZNjIznRpOf1QZH5f13DCVhii8LPsdBB4G/b0fkhQ=
