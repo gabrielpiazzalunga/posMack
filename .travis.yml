@@ -36,3 +36,8 @@ deploy:
   app: devopslab-gabriel
   on:
     branch: main
+
+# Ao final do arquivo deverá ter as linhas abaixo                                                                                                                                                      
+
+notifications:
+  slack: devopstoolsgroup:DsA2PSI10ONiqotpvQJkvztq
