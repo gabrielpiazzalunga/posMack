@@ -24,6 +24,7 @@ jobs:
 
       install:
         - pip install coverage
+        - pip install flask flask-wtf coverage
 
       script:
         - coverage run test.py || travis_terminate 1;
