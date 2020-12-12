@@ -5,38 +5,59 @@ language: python
 python:                                                                                                                                                                                                  
   - "3.7.9"                                                                                                                                                                                              
 
-# Instalação de Módulos que são necessários para a Aplicação.                                                                                                                                            
-install:                                                                                                                                                                                                 
-  - pip install flask flask-wtf coverage
-
-# Defini o script de Teste que deve rodar toda vez que o código for alterado.                                                                     
-script:                                                                                                                                           
-  - coverage report app.py || travis_terminate 1;
-  - coverage xml app.py || travis_terminate 1;
-  - sonar-scanner || travis_terminate 1;
-
-addons:
-  sonarcloud:
-    organization: gabrielpiazzalunga
-    token: ${SONAR_TOKEN}
-
-# Defini o script de Teste que deve rodar toda vez que o código for alterado.                                                                                                                            
-script:                                                                                                                                                                                                  
-  - python -m unittest -v test || travis_terminate 1;
-  - sonar-scanner || travis_terminate 1;
 os: linux
 dist: xenial
 
-# Definir o Deploy no Heroku
-deploy:
-  provider: heroku
-  api_key: $HEROKU_API_KEY
-  strategy: api
-  edge: true 
-  app: devopslab-gabriel
-  on:
-    branch: main
+jobs:
+  include:
+    - stage: Testes
 
+      name: "Testes Unitarios"
+      # Instalação de Módulos que são necessários para a Aplicação.
+      install:
+        - pip install flask flask-wtf coverage
+      script:  # Defini o script de Teste que deve rodar toda vez que o código for alterado.
+        - coverage run test.py || travis_terminate 1;
+
+    - # Segundo Job do Stage de Teste
+      name: "Testes de Qualidade e Seguranca"
+
+      install:
+        - pip install coverage
+
+      script:
+        - coverage report app.py || travis_terminate 1;
+        - coverage xml app.py || travis_terminate 1;
+        - sonar-scanner || travis_terminate 1;
+
+      addons:
+        sonarcloud:
+          organization: gabrielpiazzalunga
+          token: ${SONAR_TOKEN}
+
+    - stage: Deploy STG
+      script: skip
+      # Definir o Deploy no Heroku
+      deploy:
+        provider: heroku
+        strategy: api 
+        api_key: $HEROKU_API_KEY
+        edge: true
+        app: devopslab-gabriel-stg
+        on: 
+          branch: main
+
+    - stage: Deploy PROD
+      script: skip
+      # Definir o Deploy no Heroku
+      deploy:
+        provider: heroku
+        strategy: api
+        api_key: $HEROKU_API_KEY
+        edge: true
+        app: devopslab-gabriel
+        on:
+          branch: main
 # Ao final do arquivo deverá ter as linhas abaixo                                                                                                                                                    
 notifications:
  slack:
